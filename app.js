@@ -47,7 +47,10 @@ app.get("/blogs/:id", (req, res) => {
       });
     })
 
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      res.end();
+      console.log(err);
+    });
 });
 
 // post
@@ -62,4 +65,21 @@ app.post("/create-blog", (req, res) => {
       res.redirect("/");
     })
     .catch((err) => console.log("Error", err.message));
+});
+
+// Delete
+app.delete("/blogs/:id", (req, res) => {
+  const id = req.params.id;
+
+  Blog.findByIdAndDelete(id)
+    .then(() => {
+      console.log("Succesfully Deleted");
+      res.json({ redirect: "/" });
+    })
+    .catch((err) => res.end());
+});
+
+// 404
+app.use((req, res) => {
+  res.status(404).render("404", { title: "404", activeLink: "" });
 });
