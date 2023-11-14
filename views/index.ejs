@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partial/head") %>
+  <body>
+    <%- include("./partial/navbar") %> <%- include("./partial/header") %>
+    <div class="blogs-container">
+      <% blogs.forEach(blog => {%>
+      <a class="blog" href="/blogs/<%= blog._id %>">
+        <div class="img-wrapper">
+          <img src="<%= blog.imgUrl %>" alt="" />
+        </div>
+        <h3><%= blog.title %></h3>
+        <p><%= blog.body.substring(0, 50)%></p>
+      </a>
+      <%})%>
+    </div>
+  </body>
+</html>

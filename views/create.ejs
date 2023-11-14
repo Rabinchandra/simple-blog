@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partial/head.ejs") %>
+  <body>
+    <%- include("./partial/navbar.ejs") %>
+    <div class="header">
+      <h1>Create your Blog</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, modi.
+      </p>
+    </div>
+    <form action="create-blog" method="POST">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        placeholder="Type title here"
+        autocomplete="off"
+        required
+      />
+      <label for="title">Image Url</label>
+      <input
+        type="text"
+        name="imgUrl"
+        placeholder="Type image url here"
+        required
+        autocomplete="off"
+      />
+      <label for="body">Body</label>
+      <input
+        type="text"
+        name="body"
+        placeholder="Type body here"
+        autocomplete="off"
+        required
+      />
+      <input type="submit" value="Create Blog" id="submit" />
+    </form>
+  </body>
+</html>
