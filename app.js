@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Blog = require("./model/blog");
+const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
 
 // Middleware
 app.use(express.static("public", { root: __dirname }));
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Connect to database
 const dbURI =
